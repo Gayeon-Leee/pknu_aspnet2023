@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>네비게이션 메뉴</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!--link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script-->
+</head>
+<body>
+    <div>
+        <h2>몬스타엑스</h2>
+        <ol>
+            <!-- ol : 1. 2. 3. .. 등으로 번호(순서)를 만들어냄-->
+            <li>손현우</li>
+            <li>이민혁</li>
+            <li>유기현</li>
+            <li>채형원
+                <ol>
+                    <li>에이치원</li>
+                    <li>요한이</li>
+                    <li>기현이 1일 형</li>
+                </ol>
+            </li>
+            <li>이주헌</li>
+            <li>임창균</li>
+        </ol>
+
+        <h2>짭구삼</h2>
+        <ul>
+            <!-- ul : 리스트는 ●로 나타내고, 리스트 안의 리스트는 ○ 로 나타냄 -->
+            <li>이민혁</li>
+            <li>유기현</li>
+            <li>채형원
+                <ul>
+                    <li>얘만 94</li>
+                    <li>근데 기현이 1일 형됨</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <table border="1">
+            <!-- border 넣으면 표 테두리 생김 -->
+            <tr>
+                <th></th>
+                <th>셔누</th>
+                <th>민혁</th>
+                <th>기현</th>
+                <th>형원</th>
+                <th>주헌</th>
+                <th>창균</th>
+                <!-- 제목줄은 th로 하면 볼드체로 출력됨 -->
+            </tr>
+            <tr>
+                <td>나이</td>
+                <td>32</td>
+                <td>31</td>
+                <td>31</td>
+                <td>31/30</td>
+                <td>30</td>
+                <td>28</td>
+            </tr>
+            <tr>
+                <td>생일</td>
+                <td>0618</td>
+                <td>1103</td>
+                <td>1122</td>
+                <td>0115</td>
+                <td>1006</td>
+                <td rowspan="2">0126</td>
+                <!-- rowspan : 열 병합 -->
+            </tr>
+            <tr>
+                <td>탄생석</td>
+                <td>진주</td>
+                <td colspan="2">토파즈</td>
+                <!-- colspan : 셀 병합 -->
+                <td>가넷</td>
+                <td>오팔</td>
+                <!-- rowspan / colspan 사용하면서 병합할 셀 안지워주면 테이블 깨짐! -->
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <video src="./video.mp4" controls="controls"></video>
+        <audio src="./iam.mp3" controls="controls"></audio>
+    </div>
+</body>
+</html>

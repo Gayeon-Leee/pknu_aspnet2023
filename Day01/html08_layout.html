@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>수평정렬</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!--link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script-->
+    <style>
+        div.container{
+            overflow: hidden;
+            /*내 영역을 벗어나는 부분은 안씀*/
+        }
+        div.item{
+            float: left;
+            margin: 0 5px; /*margin top right bottom left*/
+            padding: 10px;
+            border: solid 1px blue;
+        }/*margin padding 적용되는 위치 모르겠으면 실행후 F12 눌러서 개발자모드 확인하기*/
+
+        p {
+            width: 500;
+            margin: 0 auto; /*중앙정렬*/
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam error velit obcaecati possimus voluptatibus atque harum sint iure maxime. Praesentium numquam itaque fugit neque necessitatibus ex accusantium, quo harum magni?</p>
+    <div class="container">
+        <div class="item">메뉴-1</div>
+        <div class="item">메뉴-2</div>
+        <div class="item">메뉴-3</div>
+        <div class="item">메뉴-4</div>
+        <div class="item">메뉴-5</div>
+        <div class="item">메뉴-6</div>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, unde quo explicabo qui sapiente quis officiis sed nihil exercitationem ullam, amet animi eligendi quia temporibus dolor modi assumenda sit labore?</p>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>javascript</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!--link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script-->
+    <link rel="stylesheet" media="screen" href="main.css">
+    <style>
+        /* 
+        내부 스타일
+        h1{
+            background-color: blueviolet;
+        } 
+        이렇게 적을걸 main.css 파일 만들어서 외부로 빼고 link로 불러와서 쓰는 것
+        */
+    </style>
+    
+    <!-- 
+    <script src="./main.js"></script> 이것도
+    마찬가지로 아래 처럼 쓸걸 main.js 파일로 만들어서 외부로 빼고 src로 불러와서 쓰는 것
+    <script>
+         // 한줄 주석
+        /*
+        여러줄 주석
+        */
+        alert('Hello, javascript!')
+    </script>
+    -->
+
+    <script>
+        console.log("Hello, console log");
+        console.log("Second log");
+        var a = 1;
+        var b = 1;
+        console.log(a == b);
+        console.log(a === b); /* javascript에만 있음. 객체까지 모두 일치하는지를 비교 */
+        let c = 1.5;
+        console.log(c)
+
+        var radius = 10;
+        const pi = 3.141592;
+        alert('원의 크기는 ' + radius * radius * pi);
+
+        function test(){
+            var i = 10;
+            return i * pi;
+        }
+
+        alert(test());
+
+        // javascript의 특이한 함수 선언 방식.. 변수처럼 보임
+        var test2 = function (){
+            alert('test2');
+            alert('함수선언이 조금 다릅니다.');
+        }
+        test2();
+
+        //객체 - json(javascript object notation)
+        var product = {
+            name: '햄상이',
+            type: '인형',
+            feature: ['햄스터', '상어'], // 배열
+            import: true,
+            price: 30000
+        }
+        console.log(product.name);
+        console.log(product['name']);
+        console.log(product.feature);
+
+        //C#의 foreach와 같음
+        for(var i in product) {
+            console.log(i + ' / ' + product[i])
+        }
+    </script>
+</head>
+<body>
+    <h1>Hello HTML5</h1>
+</body>
+</html>

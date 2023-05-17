@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!--link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script-->
+</head>
+<body>
+    <form method="get">
+        <!-- 특정 행동을 하게 만들거면 <form action="...."> 이런식으로 action 속성에 적으면 됨. 없으면 자기자신(현재페이지)에서 처리 -->
+        <!-- method의 get 방식은 주소에 다 나오고, post 방식은 숨겨서 보냄 -->
+        <!-- 아래부터 입력태그 -->
+        <input type="text" id="tt" name="search" value="텍스트"><br> <!-- br : 줄바꿈-->
+        <input type="password" name="pwd" value="931122"><br>
+        <input type="checkbox" name="setlist1">Little bit of love &nbsp;&nbsp;&nbsp;<input type="checkbox" name="setlist2">Stardust<br>
+        <!--공백 넣고 싶으면 스페이스X &치고 ctrl+스페이스 눌러서 &nbsp 넣으면 공백 생김 -->
+        <input type="radio" name="hamsang" value="햄스터">햄스터<input type="radio" name="hamsang" value="상어">상어<br>
+        <input type="file" name="photo"><br>
+        <textarea name="conten" rows="10"></textarea>
+        <input type="hidden" name="userid" value="KIKI"><br> <!-- hidden 많이 사용함!! 화면에는 안보임. 필요한 데이터를 숨겨놨다가 필요할때 사용하는것 -->
+        <select name="간식">
+            <option>선택</option>
+            <option>치킨</option>
+            <option>닭떡볶이</option>
+            <option>소고기볼</option>
+        </select>
+        <br>
+        <input type="submit" value="승인">
+        <input type="button" value="버튼">
+        <input type="reset" value="초기화">
+        <input type="color" value="#A566FF">
+        <input type="date" value="2015-05-14"><br>
+        <br>
+        <input type="image" src="./mx.jpg" width="480"><br>
+        
+    </form>
+</body>
+</html>
