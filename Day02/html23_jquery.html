@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" 
+            crossorigin="anonymous"></script>
+    <script>
+        // jQuery로 온로드할 때 방식 -- 이 방식 사용하면 됨
+        $(document).ready(function () {
+            $('input').click(function(){
+                $('.page').slideToggle(500);
+            });
+
+            $('.box').css({
+                width: '100px',
+                height: '100px',
+                backgroundColor: 'red'
+            }).animate({
+                width: '500px',
+                opacity: 0.5
+            }, 500);
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="Toggle">
+    <div class="page">
+        <h1>Lorem ipsum dolor sit amet.</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic aliquam molestias aut est deleniti blanditiis tempore officiis deserunt alias, optio suscipit! Consequatur ipsa nobis delectus laborum totam consequuntur? Culpa voluptatibus nobis veritatis porro magni voluptatem temporibus enim fuga expedita. Consectetur incidunt cupiditate esse eum magni aliquid numquam quidem exercitationem facere soluta, quae id cumque, officiis fugiat sit odit reprehenderit non, nesciunt obcaecati molestiae! Dicta accusamus sunt reiciendis quidem, delectus laboriosam et. Magnam modi dolor, saepe quas quo sit minima eveniet eligendi amet ab incidunt repellat fugiat minus! Placeat neque aperiam, commodi ipsam consequatur alias veniam soluta voluptatibus nam rerum esse!</p>
+    </div>
+    <div class="box"></div>
+</body>  
+</html>

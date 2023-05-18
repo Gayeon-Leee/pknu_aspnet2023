@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>DOM</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!--link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script-->
+    <script>
+        window.onload = function(event) {
+            var button = document.querySelector("input");
+            button.onclick = function(ev) {
+                alert('click!')
+            }
+
+            alert(event)
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="클릭"></button>
+    <!--input type="button" value="클릭" onclick="alert('click!')"></button-->
+    <!-- 이렇게 주석처리 한 부분이랑 위에 script 부분에서 적는거랑 똑같음 -->
+
+</body>
+</html>

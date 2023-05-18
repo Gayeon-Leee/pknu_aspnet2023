@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" 
+            crossorigin="anonymous"></script>
+    <script>
+        // jQuery로 온로드할 때 방식 -- 이 방식 사용하면 됨
+        $(document).ready(function () {
+            $('img').attr('alt', 'jQuery로 만든 이미지');
+            $('img').attr('src', 'http://picsum.photos/100/100');
+            $('img').attr('width', '150');
+            // 위아래 동일한 기능! 아래가 좀 더 간편함~
+            $('img').attr({
+                alt: 'jQuery json으로 정리한 속성값',
+                //src: 'http://picsum.photos/150/100',
+                src: function(index) {
+                    var width = (index + 1) * 100;
+                    return 'http://picsum.photos/' + width + '/100'
+                }
+                //width: '140'
+            })
+        });
+    </script>
+</head>
+<body>
+    <img>
+    <img>
+    <img>
+</body>
+</html>
