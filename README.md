@@ -21,4 +21,6 @@
 	- 핀터레스트스타일페이지 클로닝
 	
 Bootstrap 앨범사이트 클로닝
-<img>
+<img src="https://raw.githubusercontent.com/Gayeon-Leee/pknu_aspnet2023/main/images/bootstrapalbum.gif" width="700">
+핀터레스트스타일페이지 클로닝
+<img src="https://raw.githubusercontent.com/Gayeon-Leee/pknu_aspnet2023/main/images/pinterest.gif" width="700">
