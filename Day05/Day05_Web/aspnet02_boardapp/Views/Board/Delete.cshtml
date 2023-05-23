@@ -1,15 +1,20 @@
 ﻿@model aspnet02_boardapp.Models.Board
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Delete";
 }
 
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-8">
-            <h4 class="text-primary">게시판 글쓰기</h4>
+            <h4 class="text-primary">게시판 글 삭제</h4>
         </div>
         <div class="col-4 text-end">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h5 class="text-warning">삭제하시겠습니까?</h5>
         </div>
     </div>
 </div>
@@ -18,32 +23,30 @@
 <div class="container">
     <div class="row">
         <div class="col-md">
-            <form asp-action="Create">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <form asp-action="DeletePost">
+                <input type="hidden" asp-for="Id" />
                 <div class="form-group">
                     <label asp-for="UserId" class="control-label"></label>
-                    <input asp-for="UserId" class="form-control" />
-                    <span asp-validation-for="UserId" class="text-danger"></span>
+                    <input asp-for="UserId" class="form-control" readonly/>
                 </div>
                 <div class="form-group">
                     <label asp-for="UserName" class="control-label"></label>
-                    <input asp-for="UserName" class="form-control" />
-                    <span asp-validation-for="UserName" class="text-danger"></span>
+                    <input asp-for="UserName" class="form-control" readonly/>
                 </div>
                 <div class="form-group">
                     <label asp-for="Title" class="control-label"></label>
-                    <input asp-for="Title" class="form-control" />
-                    <span asp-validation-for="Title" class="text-danger"></span>
+                    <input asp-for="Title" class="form-control" readonly/>
                 </div>
                 <div class="form-group">
                     <label asp-for="Contents" class="control-label"></label>
-                    <textarea asp-for="Contents" class="form-control" rows="10"></textarea>
+                    <!-- Delete의 textarea는 Trumbowyg 에디터때문에 readonly 안먹힘-->
+                    <textarea asp-for="Contents" class="form-control editor" rows="10" readonly="readonly"></textarea>
                     @*<span asp-validation-for="Contents" class="text-danger"></span>*@
                 </div>
                 <br />
                 <div class="form-group text-end">
-                    <button type="submit" value="저장" class="btn btn-sm btn-primary">
-                        <span class="bi bi-file-earmark-plus"></span>&nbsp;저장
+                    <button type="submit" value="삭제" class="btn btn-sm btn-warning">
+                        <span class="bi bi-trash3"></span>&nbsp;삭제
                     </button>
                     <a asp-controller="Board" asp-action="Index" class="btn btn-sm btn-success">
                         <i class="bi bi-list-ol"></i>&nbsp;목록
@@ -53,9 +56,3 @@
         </div>
     </div>
 </div>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}

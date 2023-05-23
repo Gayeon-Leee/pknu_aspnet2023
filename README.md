@@ -30,3 +30,7 @@ Bootstrap 앨범사이트 클로닝
 - ASP.NET MVC
 	- ASP.NET 기본
 	- ASP.NET 프로젝트
+
+## 5일차
+- ASP.NET MVC
+	- 게시판 페이징까지
