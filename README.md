@@ -34,3 +34,8 @@ Bootstrap 앨범사이트 클로닝
 ## 5일차
 - ASP.NET MVC
 	- 게시판 페이징까지
+	
+## 6일차
+- ASP.NET MVC
+	- 게시판 정리
+	- 계정 관리
