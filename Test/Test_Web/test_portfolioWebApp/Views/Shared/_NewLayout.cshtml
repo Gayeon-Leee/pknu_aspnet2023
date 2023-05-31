@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    @*<meta name="description" content="" />
+    <meta name="author" content="" />*@
+    <title>@ViewData["Title"] - IoT 포트폴리오 웹앱</title>
+    <!-- Favicon assets/favicon.ico-->
+    <link rel="icon" type="image/x-icon" href="~/themes/modern_business/assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- 한글 폰트 조정 위해서 나눔고딕 추가 => 구글폰트에서 링크 가져다쓰면 됨! -->
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Core theme CSS (includes Bootstrap)  css/styles.css-->
+    <link href="~/themes/modern_business/css/styles.css" rel="stylesheet" />
+    <!-- 기존 사이트용 추가 CSS // 기존 _Layout.cshtml에서 가져다씀 -->
+    <!--WYSIWYG 에디터 링크-->
+    <link rel="stylesheet" href="~/lib/trumbowyg/ui/trumbowyg.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <!-- Toast 메세지창 js 라이브러리용 CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+</head>
+
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-5">
+                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/themes/modern_business/about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        @*<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>*@
+                        @*<li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>*@
+                        @*<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                <li><a class="dropdown-item" href="blog-home.html">Blog Home</a></li>
+                                <li><a class="dropdown-item" href="blog-post.html">Blog Post</a></li>
+                            </ul>
+                        </li>*@
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
+                                <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
+                                <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link nanum-bold" asp-action="Index" asp-controller="Board">공지사항</a></li>
+                        
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">@userManager.GetUserName(User)</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <li><a class="dropdown-item" asp-controller="Admin" asp-action="ListRoles">권한관리</a></li>
+                                    }
+                                    <li><a class="dropdown-item" asp-controller="Portfolio" asp-action="Index">포폴관리</a></li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Account" asp-action="Profile"
+                                       asp-route-userName="@userManager.GetUserName(User)">프로필</a>
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <form asp-controller="Account" asp-action="Logout" method="post">
+                                            <button type="submit" class="btn btn-link nanum-bold">로그아웃</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link nanum-bold" asp-controller="Account" asp-action="Register">회원가입</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nanum-bold" asp-controller="Account" asp-action="Login">로그인</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        @*<!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center justify-content-center">
+                    <div class="col-lg-8 col-xl-7 col-xxl-6">
+                        <div class="my-5 text-center text-xl-start">
+                            <h1 class="display-5 fw-bolder text-white mb-2">A Bootstrap 5 template for modern businesses</h1>
+                            <p class="lead fw-normal text-white-50 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit!</p>
+                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
+                                <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
+                </div>
+            </div>
+        </header>*@
+    </main>
+    
+    <div>
+        <!-- RenderBody()는 필수임!!! /Views/Account, Admin, Board, Home 전부 다 -->
+        @RenderBody()
+    </div>
+
+    <footer class="bg-dark py-4 mt-auto">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Your Website 2023</div></div>
+                <div class="col-auto">
+                    <a class="link-light small" href="#!">Privacy</a>
+                    <span class="text-white mx-1">&middot;</span>
+                    <a class="link-light small" href="#!">Terms</a>
+                    <span class="text-white mx-1">&middot;</span>
+                    <a class="link-light small" href="#!">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS js/scripts.js-->
+    <script src="~/themes/modern_business/js/scripts.js"></script>
+
+    <!-- WYSIWYG 에디터용 js & 한국언어팩 // 기존 _Layout.cshtml에서 가져다씀 -->
+    <script src="~/lib/trumbowyg/trumbowyg.min.js"></script>
+    <script src="~/lib/trumbowyg/langs/ko.min.js"></script>
+    <!-- trumbowyg를 site.js에서 부르기때문에 상위에 trumbowyg에 관련된 js가 먼저 나와야함 // 기존 _Layout.cshtml에서 가져다씀 -->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
