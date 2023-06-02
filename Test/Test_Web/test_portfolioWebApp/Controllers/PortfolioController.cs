@@ -26,6 +26,13 @@ namespace aspnet03_portfolioWebApp.Controllers
         }
 
         [HttpGet]
+        public IActionResult PortfolioList()
+        {
+            var list = _db.Portfolios.ToList(); // SELECT *
+            return View(list);
+        }
+
+        [HttpGet]
         public IActionResult Create()
         {
             // 뷰 만들때 조심해야함 - Index 처럼 PortfolioModel 쓰는거 아님! TempPortflioModel 써야함

@@ -32,14 +32,36 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
             <div class="container px-5">
-                <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Start Bootstrap</span></a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><span class="fw-bolder text-primary">Yeon's</span></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
                         <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
-                        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Portfolio" asp-action="Index">Portfolio</a></li>
                         <li class="nav-item"><a class="nav-link" asp-controller="Board" asp-action="Contact">Contact</a></li>
+                        
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">@userManager.GetUserName(User)</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                    <li><a class="dropdown-item" asp-controller="Portfolio" asp-action="PortfolioList">포트폴리오 관리</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Portfolio" asp-action="Create">포트폴리오 추가</a></li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Account" asp-action="Profile" asp-route-userName="@userManager.GetUserName(User)">프로필 관리</a>
+                                    </li>
+                                    <li class="scroll-to-section">
+                                        <form asp-controller="Account" asp-action="Logout" method="post">
+                                            <button type="submit" class="btn btn-link nanum-bold">로그아웃</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item"><a class="nav-link" asp-controller="Account" asp-action="Login">Login</a></li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -55,18 +77,17 @@
                             <div class="fs-3 fw-light text-muted">I can help your business to</div>
                             <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">Get online and grow fast</span></h1>
                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
-                                <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="resume.html">Resume</a>
-                                <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="projects.html">Projects</a>
+                                <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" asp-controller="Portfolio" asp-action="Index">Portfolio</a>
                             </div>
                         </div>
                     </div>
-                   @* <div class="col-xxl-7">
+                    <div class="col-xxl-7">
                         <!-- Header profile picture-->
                         <div class="d-flex justify-content-center mt-5 mt-xxl-0">
                             <div class="profile bg-gradient-primary-to-secondary">
                                 <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
                                 <!-- Watch a tutorial on how to do this on YouTube (link)-->
-                                <img class="profile-img" src="assets/profile.png" alt="..." />
+                                <img class="profile-img" src="~/themes/personal/testimg.jpg" alt="..." />
                                 <div class="dots-1">
                                     <!-- SVG Dots-->
                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 191.6 1215.4" style="enable-background: new 0 0 191.6 1215.4" xml:space="preserve">
@@ -180,7 +201,7 @@
                                     <!-- END of SVG dots-->
                                 </div>
                             </div>
-                        </div>*@
+                        </div>
                     </div>
                 </div>
             </div>

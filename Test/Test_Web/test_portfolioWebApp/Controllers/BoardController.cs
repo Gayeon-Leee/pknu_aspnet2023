@@ -184,5 +184,10 @@ namespace aspnet02_boardapp.Controllers
             return View(board);
         }
 
+        public IActionResult Contact() // Contact
+        {
+            return View();
+        }
+
     }
 }

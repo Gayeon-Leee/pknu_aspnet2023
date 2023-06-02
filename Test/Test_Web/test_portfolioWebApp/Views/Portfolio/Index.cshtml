@@ -2,58 +2,175 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_PortfolioLayout.cshtml";
 }
 
-<h1>Index</h1>
+<!-- Projects Section-->
+<section class="py-5">
+    <div class="container px-5 mb-5">
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Projects</span></h1>
+        </div>
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+                <div class="loop owl-carousel">
+                    @if (Model.Count() > 0)
+                    {
+                        var loop = 1;
+                        foreach (var item in Model)
+                        {
+                            if (loop % 2 == 1)// 홀수면
+                            {
+                                @Html.Raw("<div class='card overflow-hidden shadow rounded-4 border-0 mb-5'>" +
+                                     "<div class='card-body p-0'>" +
+                                     "<div class='d-flex align-items-center'>");
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Division)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Url)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FileName)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Division)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Url)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FileName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                            }
+                            // 동적으로 포트폴리오 이미지 객체 만들어주는 파트
+                            @Html.Raw("<div class='p-5'>" +
+                                    $"   <a href='{item.Url}' target='_blank'><h4>Awesome Project 102</h4></a>" +
+                                    $"   <span>{item.Description}</span>" +
+                                    "</div>" +
+                                    $"    <img src='/uploads/{item.FileName}' width='300' height='400'>" )
+                            if (loop % 2 == 0)
+                            {
+                                @Html.Raw("</div>" +
+                                            "</div>" + 
+                                            "</div>");
+                            }
+                            loop++;
+                        }
+                    }
+                </div>
+
+
+                <!-- Project Card 1-->
+                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-center">
+                            <div class="p-5">
+                                <h2 class="fw-bolder">Project Name 1</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius at enim eum illum aperiam placeat esse? Mollitia omnis minima saepe recusandae libero, iste ad asperiores! Explicabo commodi quo itaque! Ipsam!</p>
+                            </div>
+                            <img class="img-fluid" src="https://dummyimage.com/300x400/343a40/6c757d" alt="..." />
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 2-->
+                <div class="card overflow-hidden shadow rounded-4 border-0">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-center">
+                            <div class="p-5">
+                                <h2 class="fw-bolder">Project Name 2</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius at enim eum illum aperiam placeat esse? Mollitia omnis minima saepe recusandae libero, iste ad asperiores! Explicabo commodi quo itaque! Ipsam!</p>
+                            </div>
+                            <img class="img-fluid" src="https://dummyimage.com/300x400/343a40/6c757d" alt="..." />
+                        </div>
+                    </div>
+                </div>
+                <!-- Test -->
+                <div class="card overflow-hidden shadow rounded-4 border-0">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-center">
+                            <div class="loop owl-carousel">
+                                @if (Model.Count() > 0)
+                                {
+                                    var loop = 1;
+                                    foreach (var item in Model)
+                                    {
+                                        if (loop % 2 == 1)// 홀수면
+                                        {
+                                            @Html.Raw("<div class=\"d-flex align-items-center\">");
+
+                                        }
+                                        // 동적으로 포트폴리오 이미지 객체 만들어주는 파트
+                                        @Html.Raw("<div class='p-5'>" +
+                                                  $"   <a href='{item.Url}' target='_blank'><h4>Awesome Project 102</h4></a>" +
+                                                  $"   <span>{item.Description}</span>" +
+                                                  "</div>" +
+                                                  $"    <img src='/uploads/{item.FileName}' width='300' height='400'>" )
+                                        if (loop % 2 == 0)
+                                        {
+                                            @Html.Raw("</div>");
+                                        }
+
+                                        loop++;
+                                    }
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Call to action section-->
+<section class="py-5 bg-gradient-primary-to-secondary text-white">
+    <div class="container px-5 my-5">
+        <div class="text-center">
+            <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
+            <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" asp-controller="Board" asp-action="Contact">Contact me</a>
+        </div>
+    </div>
+</section>
+@*
+*@
+
+
+<!-- 포트폴리오 -->
+<div id="portfolio" class="our-portfolio section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="section-heading wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
+                    <h6>포트폴리오</h6>
+                    <h2><em>프로젝트</em>와 <span>쇼케이스</span>를 감상하세요</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="loop owl-carousel">
+                    @if (Model.Count() > 0)
+                    {
+                        var loop = 1;
+                        foreach (var item in Model)
+                        {
+                            if (loop % 2 == 1)// 홀수면
+                            {
+                                @Html.Raw("<div class=\"item\">")
+                                ;
+
+                            }
+                            // 동적으로 포트폴리오 이미지 객체 만들어주는 파트
+                            @Html.Raw("<div class='portfolio-item'>" +
+                    "  <div class='thumb'>" +
+                    $"    <img src='/uploads/{item.FileName}' width='445' height='305'>" +
+                    "    <div class='hover-content'>" +
+                    "      <div class='inner-content'>" +
+                    $"        <a href='{item.Url}' target='_blank'><h4>Awesome Project 102</h4></a>" +
+                    $"        <span>{item.Description}</span>" +
+                    "      </div>" +
+                    "    </div> " +
+                    "  </div>" +
+                    " </div>")
+
+                            if (loop % 2 == 0)
+                            {
+                                @Html.Raw("</div>")
+                                ;
+                            }
+
+                            loop++;
+                        }
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
