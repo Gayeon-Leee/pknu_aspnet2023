@@ -81,3 +81,9 @@ Bootstrap 앨범사이트 클로닝
 - ASP.NET RestAPI
 	- RestAPI Server 수정
 	- FrontEnd Server 작업 계속
+
+
+## 개인 포트폴리오 사이트 완료
+- README 정리 필요
+
+<img src="https://github.com/Gayeon-Leee/pknu_aspnet2023/blob/main/Image/portfolilo.gif" width="700">
