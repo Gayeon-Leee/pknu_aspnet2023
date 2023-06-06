@@ -44,14 +44,14 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">@userManager.GetUserName(User)</a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                    <li><a class="dropdown-item" asp-controller="Portfolio" asp-action="PortfolioList">포트폴리오 관리</a></li>
-                                    <li><a class="dropdown-item" asp-controller="Portfolio" asp-action="Create">포트폴리오 추가</a></li>
+                                    <li><a class="dropdown-item naum" asp-controller="Portfolio" asp-action="PortfolioList">포트폴리오 관리</a></li>
+                                    <li><a class="dropdown-item naum" asp-controller="Portfolio" asp-action="Create">포트폴리오 추가</a></li>
                                     <li>
-                                        <a class="dropdown-item" asp-controller="Account" asp-action="Profile" asp-route-userName="@userManager.GetUserName(User)">프로필 관리</a>
+                                        <a class="dropdown-item naum" asp-controller="Account" asp-action="Profile" asp-route-userName="@userManager.GetUserName(User)">프로필 관리</a>
                                     </li>
                                     <li class="scroll-to-section">
                                         <form asp-controller="Account" asp-action="Logout" method="post">
-                                            <button type="submit" class="btn btn-link nanum-bold">로그아웃</button>
+                                            <button type="submit" class="btn btn-link nanum-bold naum">로그아웃</button>
                                         </form>
                                     </li>
                                 </ul>
@@ -76,7 +76,7 @@
     <footer class="bg-white py-4 mt-auto">
         <div class="container px-5">
             <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                <div class="col-auto"><div class="small m-0">Copyright &copy; Your Website 2023</div></div>
+                <div class="col-auto"><div class="small m-0">Copyright &copy; Gayeon's Website 2023</div></div>
                 <div class="col-auto">
                     <a class="small" href="#!">Privacy</a>
                     <span class="mx-1">&middot;</span>
